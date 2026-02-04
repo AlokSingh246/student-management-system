@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Students</title>
+</head>
+<body>
+  <h2>Student Records</h2>
+<table border="1" cellpadding="6">
+  <tr><th>ID</th><th>Name</th><th>Age</th><th>Course</th><th>Actions</th></tr>
+  {% for s in students %}
+    <tr>
+      <td>{{ s[0] }}</td>
+      <td>{{ s[1] }}</td>
+      <td>{{ s[2] }}</td>
+      <td>{{ s[3] }}</td>
+      <td>
+        <!-- Update form -->
+        <form method="POST" action="/update_student/{{ s[0] }}" style="display:inline;">
+          <input type="text" name="course" placeholder="New course" required>
+          <button type="submit">Update</button>
+        </form>
+
+        <!-- Delete form -->
+        <form method="POST" action="/delete_student/{{ s[0] }}" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+   <h3>Add Student</h3>
+  <form method="POST" action="/add_student">
+    <label>Name:</label>
+    <input type="text" name="name" required>
+    <label>Age:</label>
+    <input type="number" name="age" min="1" required>
+    <label>Course:</label>
+    <input type="text" name="course" required>
+    <button type="submit">Add</button>
+  </form>
+
+  <p><a href="/dashboard">Back to Dashboard</a></p>
+</body>
+</html>

@@ -1,0 +1,1 @@
+A basic student management system using python(BACKEND),MYSQL(DATABASE),HTML AND CSS(FRONTEND)
