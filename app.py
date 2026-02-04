@@ -7,9 +7,9 @@ app.secret_key = "replace_with_a_strong_secret_key"  # used for sessions
 def get_db_connection():
     return mysql.connector.connect(
         host="localhost",
-        user="root",      # or 'root' if that's what you used
-        password="Alok@246",    # update accordingly
-        database="student_db"
+        user="",     #add user from MYSQL 
+        password="",    # update accordingly
+        database=""     #add database
     )
 
 # ----- Auth routes -----
